@@ -6,7 +6,7 @@
 #    By: elindber <elindber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/07 16:24:48 by elindber          #+#    #+#              #
-#    Updated: 2020/01/28 11:44:24 by elindber         ###   ########.fr        #
+#    Updated: 2020/06/10 10:36:05 by elindber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ SRC = srcs/ft_printf.c srcs/minwth_print.c srcs/print_c.c srcs/print_f.c \
 	  srcs/print_p.c srcs/print_s.c srcs/print_x.c srcs/scan_tags.c \
 	  srcs/imaxtoa.c srcs/number_cast.c srcs/print_d.c srcs/print_o.c \
 	  srcs/print_percent.c srcs/print_u.c srcs/put_zeros.c \
-	  srcs/set_tags_and_print.c
+	  srcs/set_tags_and_print.c srcs/get_next_line.c
 
 OBJ = ft_printf.o minwth_print.o print_c.o print_f.o print_p.o print_s.o \
 	  print_x.o scan_tags.o imaxtoa.o number_cast.o print_d.o print_o.o \
-	  print_percent.o print_u.o put_zeros.o set_tags_and_print.o
+	  print_percent.o print_u.o put_zeros.o set_tags_and_print.o \
+	  get_next_line.o
 
 LIBFT = ./libft/libft.a
 

@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_nbrcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/29 15:59:16 by elindber          #+#    #+#             */
+/*   Created: 2020/03/11 14:23:51 by elindber          #+#    #+#             */
 /*   Updated: 2020/04/30 14:39:15 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+size_t	ft_nbrcount(intmax_t nbr)
 {
-	size_t		count;
-	long		nbr;
-	char		*str;
+	size_t count;
 
-	nbr = (long)n;
-	count = ft_nbrcount((intmax_t)n);
-	if (!(str = ft_strnew(count)))
-		return (NULL);
-	count--;
+	count = 0;
 	if (nbr == 0)
-		str[0] = '0';
+		return (1);
 	if (nbr < 0)
 	{
-		str[0] = '-';
 		nbr *= -1;
+		count++;
 	}
 	while (nbr > 0)
 	{
-		str[count] = nbr % 10 + '0';
 		nbr /= 10;
-		count--;
+		count++;
 	}
-	return (str);
+	return (count);
 }
