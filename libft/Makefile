@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: elindber <elindber@student.42.fr>          +#+  +:+       +#+         #
+#    By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/18 12:43:46 by elindber          #+#    #+#              #
-#    Updated: 2020/03/11 19:00:02 by elindber         ###   ########.fr        #
+#    Updated: 2020/10/01 15:54:57 by elindber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
