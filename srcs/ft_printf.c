@@ -6,23 +6,22 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 13:14:39 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:55:07 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:55:46 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_tags	*set_ids(t_tags *ids)
+void	set_ids(t_tags *ids)
 {
 	ids->i = 0;
 	ids->printed_chars = 0;
 	ids->flag = "#0 +-";
 	ids->arg_type = "%cCspdDiouxXf";
 	ids->modifiers = "hlL";
-	return (ids);
 }
 
-t_tags	*create_tmp_ids(t_tags *ids)
+void	create_tmp_ids(t_tags *ids)
 {
 	ids->minwth = 0;
 	ids->period = 0;
@@ -39,7 +38,6 @@ t_tags	*create_tmp_ids(t_tags *ids)
 	ids->current_modifier[0] = '\0';
 	ids->current_modifier[1] = '\0';
 	ids->current_modifier[2] = '\0';
-	return (ids);
 }
 
 int		ft_printf(const char *format, ...)

@@ -6,13 +6,13 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 16:35:37 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:55:50 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:53:56 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_tags	*scan_arg_type(t_tags *ids)
+void	scan_arg_type(t_tags *ids)
 {
 	int	i;
 
@@ -23,14 +23,13 @@ t_tags	*scan_arg_type(t_tags *ids)
 		{
 			ids->current_type = ids->format[ids->i];
 			ids->i++;
-			return (ids);
+			return ;
 		}
 		i++;
 	}
-	return (ids);
 }
 
-t_tags	*scan_modifier(t_tags *ids)
+void	scan_modifier(t_tags *ids)
 {
 	int	i;
 	int	c;
@@ -52,10 +51,9 @@ t_tags	*scan_modifier(t_tags *ids)
 			i++;
 		}
 	}
-	return (ids);
 }
 
-t_tags	*scan_period_maxwth(t_tags *ids)
+void	scan_period_maxwth(t_tags *ids)
 {
 	if (ids->format[ids->i] == '.')
 	{
@@ -70,10 +68,9 @@ t_tags	*scan_period_maxwth(t_tags *ids)
 			ids->i++;
 		}
 	}
-	return (ids);
 }
 
-t_tags	*scan_minwth(t_tags *ids)
+void	scan_minwth(t_tags *ids)
 {
 	while (ids->format[ids->i] >= '0' && ids->format[ids->i] <= '9')
 	{
@@ -82,10 +79,9 @@ t_tags	*scan_minwth(t_tags *ids)
 			ids->minwth = ids->minwth * 10;
 		ids->i++;
 	}
-	return (ids);
 }
 
-t_tags	*scan_flags(t_tags *ids)
+void	scan_flags(t_tags *ids)
 {
 	int		i;
 
@@ -108,5 +104,4 @@ t_tags	*scan_flags(t_tags *ids)
 		}
 		i++;
 	}
-	return (ids);
 }

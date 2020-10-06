@@ -6,7 +6,7 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 14:00:48 by elindber          #+#    #+#             */
-/*   Updated: 2020/04/30 14:28:37 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 18:40:16 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,27 @@ typedef struct	s_identifiers
 	va_list		arguments;
 }				t_tags;
 
-t_tags			*scan_flags(t_tags *ids);
-t_tags			*scan_minwth(t_tags *ids);
-t_tags			*scan_period_maxwth(t_tags *ids);
-t_tags			*scan_modifier(t_tags *ids);
-t_tags			*scan_arg_type(t_tags *ids);
-t_tags			*create_tmp_ids(t_tags *ids);
-t_tags			*read_arg_type(t_tags *ids);
-t_tags			*print_c(t_tags *ids);
-t_tags			*print_d(t_tags *ids);
-t_tags			*print_s(t_tags *ids);
-t_tags			*print_p(t_tags *ids);
-t_tags			*print_o(t_tags *ids);
-t_tags			*print_u(t_tags *ids);
-t_tags			*print_x(t_tags *ids);
-t_tags			*print_f(t_tags *ids);
-t_tags			*print_percent(t_tags *ids);
-t_tags			*put_zero_oxu(t_tags *ids, size_t len);
-t_tags			*put_zero_df(t_tags *ids, size_t len);
-t_tags			*put_zero_p(t_tags *ids, size_t len);
-t_tags			*put_plusminus(t_tags *ids, intmax_t nbr);
-t_tags			*minwth_print(t_tags *ids, size_t len);
-t_tags			*period_zero(t_tags *ids);
+void			scan_flags(t_tags *ids);
+void			scan_minwth(t_tags *ids);
+void			scan_period_maxwth(t_tags *ids);
+void			scan_modifier(t_tags *ids);
+void			scan_arg_type(t_tags *ids);
+void			create_tmp_ids(t_tags *ids);
+void			print_c(t_tags *ids);
+void			print_d(t_tags *ids);
+void			print_s(t_tags *ids);
+void			print_p(t_tags *ids);
+void			print_o(t_tags *ids);
+void			print_u(t_tags *ids);
+void			print_x(t_tags *ids);
+void			print_f(t_tags *ids);
+void			print_percent(t_tags *ids);
+void			put_zero_oxu(t_tags *ids, size_t len);
+void			put_zero_df(t_tags *ids, size_t len);
+void			put_zero_p(t_tags *ids, size_t len);
+void			put_plusminus(t_tags *ids, intmax_t nbr);
+void			minwth_print(t_tags *ids, size_t len);
+void			period_zero(t_tags *ids);
 int				ft_printf(const char *format, ...);
 int				read_format(t_tags *ids);
 intmax_t		cast_number(t_tags *ids, intmax_t nbr);

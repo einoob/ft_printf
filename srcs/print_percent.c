@@ -6,13 +6,13 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/16 14:09:00 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:55:35 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:54:43 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_tags		*print_percent(t_tags *ids)
+void		print_percent(t_tags *ids)
 {
 	if (ids->current_flag[4] == '-')
 		write(1, "%", 1);
@@ -31,5 +31,4 @@ t_tags		*print_percent(t_tags *ids)
 	if (ids->current_flag[4] != '-')
 		write(1, "%", 1);
 	ids->printed_chars++;
-	return (ids);
 }

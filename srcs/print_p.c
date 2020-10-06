@@ -6,13 +6,13 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 18:42:03 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:55:31 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:54:49 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_tags			*print_p(t_tags *ids)
+void	print_p(t_tags *ids)
 {
 	uintmax_t	ptr;
 	char		*str;
@@ -26,7 +26,7 @@ t_tags			*print_p(t_tags *ids)
 	{
 		ids->printed_chars += 2;
 		period_zero(ids);
-		return (ids);
+		return ;
 	}
 	if ((ids->current_flag[1] == '0' && ft_strlen(str) + 2 < ids->minwth &&
 	ids->minwth > 0) || (ids->period == 1 && ids->maxwth > ft_strlen(str)))
@@ -37,5 +37,4 @@ t_tags			*print_p(t_tags *ids)
 	&& ids->period == 1) || ids->minwth > 0))
 		minwth_print(ids, ft_strlen(str) + 2);
 	free(str);
-	return (ids);
 }

@@ -6,13 +6,13 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 13:46:25 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:55:21 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:55:25 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_tags	*print_c(t_tags *ids)
+void	print_c(t_tags *ids)
 {
 	char	c;
 
@@ -23,5 +23,4 @@ t_tags	*print_c(t_tags *ids)
 	ids->printed_chars++;
 	if (ids->minwth > 0 && ids->current_flag[4] != '\0')
 		minwth_print(ids, 1);
-	return (ids);
 }

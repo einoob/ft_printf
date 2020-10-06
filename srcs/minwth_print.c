@@ -6,7 +6,7 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 12:33:48 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:55:15 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:55:31 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static size_t	mod_len_int_char(t_tags *ids, size_t len, size_t og_len)
 	return (len);
 }
 
-t_tags			*minwth_print(t_tags *ids, size_t len)
+void			minwth_print(t_tags *ids, size_t len)
 {
 	size_t		og_len;
 
@@ -102,5 +102,4 @@ t_tags			*minwth_print(t_tags *ids, size_t len)
 		ids->printed_chars++;
 		len++;
 	}
-	return (ids);
 }

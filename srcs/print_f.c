@@ -6,7 +6,7 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 13:06:30 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:55:26 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 18:37:07 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static long double	approximize_nbr(t_tags *ids, long double nbr)
 	return (nbr);
 }
 
-static t_tags		*print_space_flag(t_tags *ids, size_t len)
+static void			print_space_flag(t_tags *ids, size_t len)
 {
 	if (ids->current_flag[2] == ' ' && ids->current_flag[4] != '-' &&
 	ids->period > 0 && ids->negative < 0 && len + ids->maxwth + 2 < ids->minwth)
@@ -48,10 +48,9 @@ static t_tags		*print_space_flag(t_tags *ids, size_t len)
 		write(1, " ", 1);
 		ids->printed_chars++;
 	}
-	return (ids);
 }
 
-static t_tags		*print_front(t_tags *ids, long double nbr)
+static void			print_front(t_tags *ids, long double nbr)
 {
 	intmax_t	casted;
 	size_t		len;
@@ -77,10 +76,9 @@ static t_tags		*print_front(t_tags *ids, long double nbr)
 	ft_putstr(front);
 	ids->printed_chars += len;
 	free(front);
-	return (ids);
 }
 
-static t_tags		*print_decimals(t_tags *ids, long double nbr, size_t count)
+static void			print_decimals(t_tags *ids, long double nbr, size_t count)
 {
 	uintmax_t	casted;
 
@@ -92,10 +90,9 @@ static t_tags		*print_decimals(t_tags *ids, long double nbr, size_t count)
 	nbr -= casted;
 	if (count > 1)
 		print_decimals(ids, nbr, count - 1);
-	return (ids);
 }
 
-t_tags				*print_f(t_tags *ids)
+void				print_f(t_tags *ids)
 {
 	long double	nbr;
 
@@ -120,5 +117,4 @@ t_tags				*print_f(t_tags *ids)
 	((ids->period == 0 && ids->double_len + 7 < ids->minwth) ||
 	(ids->double_len + 1 + ids->maxwth < ids->minwth)))
 		minwth_print(ids, ids->double_len);
-	return (ids);
 }

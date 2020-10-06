@@ -6,25 +6,24 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:47:32 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:55:43 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:54:28 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static t_tags	*hashtag_puts_0x(t_tags *ids, uintmax_t nbr)
+static void	hashtag_puts_0x(t_tags *ids, uintmax_t nbr)
 {
 	if (nbr == 0)
-		return (ids);
+		return ;
 	if (ids->current_type == 'x')
 		write(1, "0x", 2);
 	else
 		write(1, "0X", 2);
 	ids->printed_chars += 2;
-	return (ids);
 }
 
-static t_tags	*prefix_print(t_tags *ids, uintmax_t nbr, size_t len)
+static void	prefix_print(t_tags *ids, uintmax_t nbr, size_t len)
 {
 	if (nbr == 0 && ids->current_flag[0] == '#' && ids->current_flag[4] != '-')
 		minwth_print(ids, len - 2);
@@ -38,10 +37,9 @@ static t_tags	*prefix_print(t_tags *ids, uintmax_t nbr, size_t len)
 		hashtag_puts_0x(ids, nbr);
 	if (ids->current_flag[1] == '0' || (ids->period == 1 && ids->maxwth > len))
 		put_zero_oxu(ids, len);
-	return (ids);
 }
 
-t_tags			*print_x(t_tags *ids)
+void		print_x(t_tags *ids)
 {
 	uintmax_t	nbr;
 	size_t		len;
@@ -54,7 +52,7 @@ t_tags			*print_x(t_tags *ids)
 	if (ids->period == 1 && ids->maxwth == 0 && nbr == 0)
 	{
 		period_zero(ids);
-		return (ids);
+		return ;
 	}
 	prefix_print(ids, nbr, len);
 	ft_putstr(str);
@@ -64,5 +62,4 @@ t_tags			*print_x(t_tags *ids)
 	else if (ids->minwth > 0 && ids->current_flag[4] == '-')
 		minwth_print(ids, len);
 	free(str);
-	return (ids);
 }

@@ -6,13 +6,13 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 16:34:36 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:55:53 by elindber         ###   ########.fr       */
+/*   Updated: 2020/10/06 18:39:49 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_tags			*read_arg_type(t_tags *ids)
+static void	read_arg_type(t_tags *ids)
 {
 	if (ids->current_type == 'c')
 		print_c(ids);
@@ -32,10 +32,9 @@ t_tags			*read_arg_type(t_tags *ids)
 		print_x(ids);
 	if (ids->current_type == 'f')
 		print_f(ids);
-	return (ids);
 }
 
-static t_tags	*call_identifier_readers(t_tags *ids)
+static void	call_identifier_readers(t_tags *ids)
 {
 	ids->i++;
 	create_tmp_ids(ids);
@@ -45,11 +44,13 @@ static t_tags	*call_identifier_readers(t_tags *ids)
 	scan_modifier(ids);
 	scan_arg_type(ids);
 	read_arg_type(ids);
-	return (ids);
 }
 
-int				read_format(t_tags *ids)
+int			read_format(t_tags *ids)
 {
+	int		start;
+	char	*str;
+
 	while (ids->format[ids->i])
 	{
 		if (ids->format[ids->i] == '%' && ids->format[ids->i + 1] == '%')
@@ -62,9 +63,13 @@ int				read_format(t_tags *ids)
 			call_identifier_readers(ids);
 		else
 		{
-			write(1, &ids->format[ids->i], 1);
-			ids->printed_chars++;
-			ids->i++;
+			start = ids->i;
+			while (ids->format[ids->i] != '%' && ids->format[ids->i] != '\0')
+				ids->i++;
+			str = ft_strsub(ids->format, start, ids->i - start);
+			write(1, str, ft_strlen(str));
+			ids->printed_chars += ft_strlen(str);
+			free(str);
 		}
 	}
 	return (0);
