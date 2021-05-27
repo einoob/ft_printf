@@ -6,7 +6,7 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 15:59:16 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:52:00 by elindber         ###   ########.fr       */
+/*   Updated: 2021/05/27 17:35:59 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_itoa(int n)
 
 	nbr = (long)n;
 	count = ft_nbrcount((intmax_t)n);
-	if (!(str = ft_strnew(count)))
+	str = ft_strnew(count);
+	if (!str)
 		return (NULL);
 	count--;
 	if (nbr == 0)

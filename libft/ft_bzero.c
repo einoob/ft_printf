@@ -6,7 +6,7 @@
 /*   By: elindber <elindber@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 12:22:30 by elindber          #+#    #+#             */
-/*   Updated: 2020/10/01 15:51:42 by elindber         ###   ########.fr       */
+/*   Updated: 2021/05/27 17:34:02 by elindber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	size_t	i;
 	char	*str;
 
-	str = (char*)(s);
+	str = (char *)(s);
 	i = 0;
 	while (i < n)
 	{
